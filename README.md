@@ -14,24 +14,24 @@ EntityFrameCore
 
 #### 安装教程
 
-1.先下载达梦数据库，并找到安装包下source\drivers\dotNet目录，先记住这两个目录名DmProvider和EFCore.Dm2.1;
+1、先下载达梦数据库，并找到安装包下source\drivers\dotNet目录，先记住这两个目录名DmProvider和EFCore.Dm2.1;
  
-2.打开Visual Studio 2017，我们新建一个ASP.NET Core WebAPI项目，这里的.NET Core SDK版本选择2.1;
+2、打开Visual Studio 2017，我们新建一个ASP.NET Core WebAPI项目，这里的.NET Core SDK版本选择2.1;
  
-3.右键解决方案下的“依赖项”，然后选择“管理NuGet程序包（N）...”;
+3、右键解决方案下的“依赖项”，然后选择“管理NuGet程序包（N）...”;
  
-4.在打开的NuGet包管理器界面，点击右上角的“设置”图标，打开选项设置对话框，点击上方的+添加可用程序包源，名称分别为DmProvider和EFCore.Dm2.1，各自对应的源为达梦安装包驱动的目录;
+4、在打开的NuGet包管理器界面，点击右上角的“设置”图标，打开选项设置对话框，点击上方的+添加可用程序包源，名称分别为DmProvider和EFCore.Dm2.1，各自对应的源为达梦安装包驱动的目录;
+
+5、程序包源下拉框中选择DmProvider，点击左侧出现的DmProvider包，然后右侧点击“安装”;
  
-5.	程序包源下拉框中选择DmProvider，点击左侧出现的DmProvider包，然后右侧点击“安装”;
+6、程序包源下拉框中选择EFCore.Dm2.1，点击左侧出现的Microsoft.EntityFrameworkCore.Dm包，然后右侧点击“安装”;
  
-6.	程序包源下拉框中选择EFCore.Dm2.1，点击左侧出现的Microsoft.EntityFrameworkCore.Dm包，然后右侧点击“安装”;
- 
-7.接着使用NuGet包管理工具，安装如下支持包：
+7、接着使用NuGet包管理工具，安装如下支持包：
    Microsoft.EntityFrameworkCore
    Microsoft.EntityFrameworkCore.Tools
    Microsoft.EntityFrameworkCore.Design
  
-8.在 appsettings.json文件中添加达梦数据库连接字符串
+8、在 appsettings.json文件中添加达梦数据库连接字符串
 
 {
   "Logging": {
@@ -46,7 +46,7 @@ EntityFrameCore
   }
 }
 
-10.我们在解决方案下创建一个City类，里面包含数据库表对应的三个字段（特别注意：如果达梦数据库在安装时，默认区分大小写的话，对应的实体类的表名和字段名的大小写必须一致，否则运行时会报错）：
+9、我们在解决方案下创建一个City类，里面包含数据库表对应的三个字段（特别注意：如果达梦数据库在安装时，默认区分大小写的话，对应的实体类的表名和字段名的大小写必须一致，否则运行时会报错）：
 
 using System.ComponentModel.DataAnnotations;
 
@@ -70,7 +70,7 @@ namespace DMHR_DEMO
     }
 }
 
-11.创建一个数据库上下文DMHRDbContext类
+10、创建一个数据库上下文DMHRDbContext类
 
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -103,7 +103,7 @@ namespace DMHR_DEMO
     }
 }
  
-11.修改Startup.cs类中ConfigureServices方法，注册DMHRDbContext上下文服务
+11、修改Startup.cs类中ConfigureServices方法，注册DMHRDbContext上下文服务
 
 public void ConfigureServices(IServiceCollection services)
 {
@@ -115,7 +115,7 @@ public void ConfigureServices(IServiceCollection services)
      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
  
-12.修改解决方案下的Controllers目录下的ValuesController控制器类，通过在构造函数注入数据库上下文类，并编写从City表获取所有数据的方法
+12、修改解决方案下的Controllers目录下的ValuesController控制器类，通过在构造函数注入数据库上下文类，并编写从City表获取所有数据的方法
 
 using System.Collections.Generic;
 using System.Linq;
