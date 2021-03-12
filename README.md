@@ -32,6 +32,7 @@ EntityFrameCore
    Microsoft.EntityFrameworkCore.Design
  
 8.在 appsettings.json文件中添加达梦数据库连接字符串
+
 {
   "Logging": {
     "LogLevel": {
@@ -44,8 +45,8 @@ EntityFrameCore
     "DmConnectionString": "Server=127.0.0.1;Port=5236;Database=DMHR;UID=SYSDBA;PWD=SYSDBA;"
   }
 }
- 
-9.我们在解决方案下创建一个City类，里面包含数据库表对应的三个字段（特别注意：如果达梦数据库在安装时，默认区分大小写的话，对应的实体类的表名和字段名的大小写必须一致，否则运行时会报错）：
+
+10.我们在解决方案下创建一个City类，里面包含数据库表对应的三个字段（特别注意：如果达梦数据库在安装时，默认区分大小写的话，对应的实体类的表名和字段名的大小写必须一致，否则运行时会报错）：
 
 using System.ComponentModel.DataAnnotations;
 
@@ -69,7 +70,7 @@ namespace DMHR_DEMO
     }
 }
 
-10.创建一个数据库上下文DMHRDbContext类
+11.创建一个数据库上下文DMHRDbContext类
 
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -85,7 +86,6 @@ namespace DMHR_DEMO
             : base(options)
         {
         }
-
         public virtual DbSet<City> Cities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
