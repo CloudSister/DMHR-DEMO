@@ -41,7 +41,6 @@ EntityFrameCore
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    //达梦DM数据库连接字符串
     "DmConnectionString": "Server=127.0.0.1;Port=5236;Database=DMHR;UID=SYSDBA;PWD=SYSDBA;"
   }
 }
